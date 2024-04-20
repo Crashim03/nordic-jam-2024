@@ -59,6 +59,6 @@ public class CleaningTool : MonoBehaviour
     private void Awake()
     {
         _bounds = _mirror.GetComponent<SpriteRenderer>().bounds;
-        _brushRadius = Brush.GetComponent<SpriteMask>().bounds.size.x / 2;
+        _brushRadius = Brush.GetComponent<SpriteRenderer>().bounds.size.x / 2;
     }
 }
