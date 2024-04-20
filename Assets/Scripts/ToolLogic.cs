@@ -6,6 +6,7 @@ public enum Tools
 {
     HAND = 0,
     PANO = 1,
+    SPRAY = 2,
 }
 
 public class ToolLogic : MonoBehaviour

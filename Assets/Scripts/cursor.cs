@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,14 @@ public class cursor : MonoBehaviour
     public GameObject customCursor;
     private Vector3 mousePosition;
     private List<Sticker> stickers = new List<Sticker>();
+    private ToolOption tool;
 
     private Vector3 previousMousePosition;
     private float flickThreshold = 70f;
     private bool sticked = false;
     private Sticker stickedSticker;
     private float unstickDistanceThreshold = 20f;
+
 
     void Start()
     {
@@ -45,8 +48,20 @@ public class cursor : MonoBehaviour
         {
             sticked = false;
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            checkForTool();
+        }
 
         previousMousePosition = mousePosition; 
+    }
+
+    private void checkForTool()
+    {
+        if (tool != null)
+        {
+            tool.set();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -55,6 +70,11 @@ public class cursor : MonoBehaviour
         if (sticker != null && !stickers.Contains(sticker))
         {
             stickers.Add(sticker);
+        }
+        ToolOption newTool = other.gameObject.GetComponent<ToolOption>();
+        if (newTool != null)
+        {
+            tool = newTool;
         }
     }
 
@@ -65,6 +85,11 @@ public class cursor : MonoBehaviour
         {
             stickers.Remove(sticker);
             StopCoroutine(UnstickAfterDelay(.5f));
+        }
+        ToolOption newTool = other.gameObject.GetComponent<ToolOption>();
+        if (newTool != null && tool == newTool)
+        {
+            tool = null;
         }
     }
 
