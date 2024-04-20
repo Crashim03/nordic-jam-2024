@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class cursor : MonoBehaviour
 {
     public GameObject customCursor;
     private Vector3 mousePosition;
+    private List<Sticker> stickers = new List<Sticker>();
+
+    private Vector3 previousMousePosition;
+    private float flickThreshold = 70f;
+    private bool sticked = false;
+    private Sticker stickedSticker;
+    private float unstickDistanceThreshold = 20f;
 
     void Start()
     {
-        Cursor.visible = false;
+        UnityEngine.Cursor.visible = false;
     }
 
     void Update()
@@ -17,9 +26,51 @@ public class cursor : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && stickers.Count > 0)
         {
-            Debug.Log("Left mouse button clicked");
+            stickedSticker = stickers[0];
+            sticked = true;
+        }  
+        else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
+        {
+            Vector3 currentVelocity = (mousePosition - previousMousePosition) / Time.deltaTime;
+            float speed = currentVelocity.magnitude;
+            if (speed > flickThreshold)
+            {
+                stickedSticker.pull();
+                sticked = false;
+            }
         }
+        else if (!Input.GetMouseButton(0))
+        {
+            sticked = false;
+        }
+
+        previousMousePosition = mousePosition; 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Sticker sticker = other.gameObject.GetComponent<Sticker>();
+        if (sticker != null && !stickers.Contains(sticker))
+        {
+            stickers.Add(sticker);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        Sticker sticker = other.gameObject.GetComponent<Sticker>();
+        if (sticker != null && stickers.Contains(sticker))
+        {
+            stickers.Remove(sticker);
+            StopCoroutine(UnstickAfterDelay(.5f));
+        }
+    }
+
+    IEnumerator UnstickAfterDelay(float stickedDuration)
+    {
+        yield return new WaitForSeconds(stickedDuration);
+        sticked = false;
     }
 }
