@@ -1934,6 +1934,10 @@ PrefabInstance:
       propertyPath: _cleanLayer
       value: 
       objectReference: {fileID: 1980583377}
+    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: _mirrorTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 058c17ecaa266dd48bbdae4c4f3ec61b, type: 2}
     - target: {fileID: 5711745696582955238, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_IsActive
       value: 1

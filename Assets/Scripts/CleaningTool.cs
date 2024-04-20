@@ -1,5 +1,6 @@
 using Unity.Mathematics;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class CleaningTool : MonoBehaviour
@@ -7,12 +8,11 @@ public class CleaningTool : MonoBehaviour
     public GameObject Brush;
     [SerializeField] private GameObject _mirror;
     [SerializeField] private GameObject _cleanLayer;
-    [SerializeField] private float _interval = 0.5f;
+    [SerializeField] private RenderTexture _mirrorTexture;
+    [SerializeField] private float _intervalTime;
     private readonly HashSet<Vector2> _brushPositions = new();
-    private readonly List<Vector2> _toClean = new();
     private Bounds _bounds;
-    private float _brushRadius;
-    private float _toCleanCount;
+
 
     public void Move(Vector3 position)
     {
@@ -25,18 +25,10 @@ public class CleaningTool : MonoBehaviour
 
         if (!_brushPositions.Contains(coordinates))
         {
-            Vector3 posToSpawn = new Vector3(position.x, position.y, 0f);
+            Vector3 posToSpawn = new(position.x, position.y, 0f);
             Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayer.transform);
             _brushPositions.Add(coordinates);
         }
-        foreach (Vector2 coordinate in new List<Vector2>(_toClean))
-        {
-            if (Vector2.Distance(coordinate, position) <= _brushRadius)
-            {
-                _toClean.Remove(coordinate);
-            }
-        }
-        Debug.Log(_toClean.Count / _toCleanCount * 100);
     }
 
     public void setBrush(GameObject brush){
@@ -45,20 +37,44 @@ public class CleaningTool : MonoBehaviour
 
     private void Start()
     {
-        for (float i = _bounds.min.x; i < _bounds.max.x; i += _interval)
+        StartCoroutine(CheckCleanedArea());
+    }
+
+    private IEnumerator CheckCleanedArea()
+    {
+        float whitePixels = 0;
+        Texture2D texture = new(_mirrorTexture.width, _mirrorTexture.height);
+
+        RenderTexture currentActiveRT = RenderTexture.active;
+
+        RenderTexture.active = _mirrorTexture;
+
+        texture.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0);
+
+        RenderTexture.active = currentActiveRT;
+
+        Color32[] colors = texture.GetPixels32();
+        for (int i = 0; i < colors.Length; i ++)
         {
-            for (float j = _bounds.min.y; j < _bounds.max.y; j += _interval)
+            if (colors[i].a > 128 && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
             {
-                _toClean.Add(new Vector2(i, j));
+                whitePixels++;
+            }
+
+            if (i % 1000 == 0) // Yield every 1000 pixels to avoid freezing
+            {
+                yield return null;
             }
         }
-        _toCleanCount = _toClean.Count;
-        Debug.Log(_toCleanCount);
+        Debug.Log(whitePixels / colors.Length * 100);
+        if (whitePixels / colors.Length != 1)
+        {
+            StartCoroutine(CheckCleanedArea());
+        }
     }
 
     private void Awake()
     {
         _bounds = _mirror.GetComponent<SpriteRenderer>().bounds;
-        _brushRadius = Brush.GetComponent<SpriteRenderer>().bounds.size.x / 2;
     }
 }
