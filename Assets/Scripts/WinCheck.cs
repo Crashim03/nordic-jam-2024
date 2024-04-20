@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class WinCheck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] CleaningTool[] toolWinConds;
+    [SerializeField] Sticker[] Stickers; 
+ 
     void Update()
     {
-        
+        foreach (CleaningTool item in toolWinConds)
+        {
+            
+        }
     }
 }

@@ -12,6 +12,7 @@ public class CleaningTool : MonoBehaviour
     [SerializeField] private float _intervalTime;
     private readonly HashSet<Vector2> _brushPositions = new();
     private Bounds _bounds;
+    public float percentage = 0f;
 
 
     public void Move(Vector3 position)
