@@ -18,17 +18,27 @@ public class cursor : MonoBehaviour
     private Sticker stickedSticker;
     private float unstickDistanceThreshold = 20f;
 
+    [HideInInspector] public CleaningTool CurrentCleaningTool;
 
-    void Start()
+
+    private void Awake()
     {
+        CurrentCleaningTool = GetComponent<CleaningTool>();
         UnityEngine.Cursor.visible = false;
     }
 
     void Update()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, 0f);
+        customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane);
+        
+        if (CurrentCleaningTool != null && Input.GetMouseButton(0))
+        {
+            CurrentCleaningTool.Move(mousePosition);
+        }
 
+
+        // Sticker Detection and Logic
         if (Input.GetMouseButtonDown(0) && stickers.Count > 0)
         {
             stickedSticker = stickers[0];
@@ -48,7 +58,7 @@ public class cursor : MonoBehaviour
         {
             sticked = false;
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0)) //Tool Selection
         {
             checkForTool();
         }
