@@ -346,8 +346,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd8cff1976bdc074e99cfa3988ae8c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Brush: {fileID: 0}
+  Brush: {fileID: 7841287675342323217, guid: e1b85cd6f2c36bc439595d1ff03bdc13, type: 3}
+  _mirror: {fileID: 0}
   _cleanLayer: {fileID: 0}
+  _interval: 0.09
 --- !u!58 &6240165998293812169
 CircleCollider2D:
   m_ObjectHideFlags: 0

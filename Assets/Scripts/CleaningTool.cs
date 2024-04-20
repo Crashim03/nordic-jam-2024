@@ -25,7 +25,8 @@ public class CleaningTool : MonoBehaviour
 
         if (!_brushPositions.Contains(coordinates))
         {
-            Instantiate(Brush, position, quaternion.identity, _cleanLayer.transform);
+            Vector3 posToSpawn = new Vector3(position.x, position.y, 0f);
+            Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayer.transform);
             _brushPositions.Add(coordinates);
         }
         foreach (Vector2 coordinate in new List<Vector2>(_toClean))
