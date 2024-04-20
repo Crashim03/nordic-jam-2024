@@ -20,6 +20,7 @@ public class cursor : MonoBehaviour
 
     [HideInInspector] public CleaningTool CurrentCleaningTool;
     [SerializeField] ToolLogic manager;
+    [SerializeField] AudioClip stickerAudio;
 
 
     private void Awake()
@@ -57,6 +58,7 @@ public class cursor : MonoBehaviour
                 if (speed > flickThreshold)
                 {
                     stickedSticker.pull();
+                    AudioSource.PlayClipAtPoint(stickerAudio, transform.position);
                     sticked = false;
                 }
             }

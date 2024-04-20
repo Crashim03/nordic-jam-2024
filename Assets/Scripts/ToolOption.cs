@@ -15,7 +15,11 @@ public class ToolOption : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0)) 
+        if (Input.GetMouseButtonDown(0) && taken) 
+        {
+            PlayUseSound();
+        }
+        if (Input.GetMouseButton(0) && taken) 
         {
             if (UnityEngine.Random.value < 0.05f) 
             {
@@ -42,7 +46,6 @@ public class ToolOption : MonoBehaviour
     }
 
     public void set(){
-        PlayUseSound();
         Color spriteColor = sprite.color;
         if (taken) 
         { 

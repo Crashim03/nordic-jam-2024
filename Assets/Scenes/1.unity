@@ -298,7 +298,9 @@ MonoBehaviour:
   sprite: {fileID: 55567576}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 1743755351935195612, guid: e132a4450724c6241ae5a0445497fd85, type: 3}
-  useSound: {fileID: 0}
+  useSound:
+  - {fileID: 8300000, guid: cb2145166195e7442a53f9ccb2145fcb, type: 3}
+  - {fileID: 8300000, guid: 501ea71903a80bb4fa65388f0d0a2af3, type: 3}
 --- !u!1 &112532870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1098,9 @@ MonoBehaviour:
   sprite: {fileID: 1256517492}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 5429202531000213009, guid: dc2a610015de83948ba260b1c74d94a8, type: 3}
-  useSound: {fileID: 0}
+  useSound:
+  - {fileID: 8300000, guid: f3e19256b2b30924794ed639c4566fd1, type: 3}
+  - {fileID: 8300000, guid: feab8e428007c4043a7bf672a077450a, type: 3}
 --- !u!1 &1368013711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,7 +1276,8 @@ MonoBehaviour:
   sprite: {fileID: 1368013715}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 0}
-  useSound: {fileID: 0}
+  useSound:
+  - {fileID: 8300000, guid: c3eede7e11a0e644c80cb98c4055ae44, type: 3}
 --- !u!1001 &1534041745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1929,6 +1934,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 516279077425906449}
+    - target: {fileID: 3847142836907330141, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: stickerAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: c9cf6b73134924a42bb07ce3e424625e, type: 3}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _mirror
       value: 
