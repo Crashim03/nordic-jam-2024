@@ -297,6 +297,7 @@ MonoBehaviour:
   tool: 1
   sprite: {fileID: 55567576}
   manager: {fileID: 516279077425906449}
+  brush: {fileID: 1743755351935195612, guid: e132a4450724c6241ae5a0445497fd85, type: 3}
 --- !u!1 &112532870
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +926,7 @@ MonoBehaviour:
   tool: 2
   sprite: {fileID: 1368013715}
   manager: {fileID: 516279077425906449}
+  brush: {fileID: 0}
 --- !u!1 &1521602535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1311,25 +1313,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
-      propertyPath: Brush
+    - target: {fileID: 3847142836907330141, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: manager
       value: 
-      objectReference: {fileID: 7841287675342323217, guid: e1b85cd6f2c36bc439595d1ff03bdc13, type: 3}
+      objectReference: {fileID: 516279077425906449}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _mirror
       value: 
       objectReference: {fileID: 1682953288}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
-      propertyPath: _interval
-      value: 0.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _cleanLayer
       value: 
       objectReference: {fileID: 1980583377}
+    - target: {fileID: 5711745696582955238, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7071178517730816575, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_Name
-      value: GameManager
+      value: CursorManager
       objectReference: {fileID: 0}
     - target: {fileID: 8846156145032542446, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1369,6 +1371,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846156145032542446, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9110137572057033109, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

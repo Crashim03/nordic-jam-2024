@@ -7,6 +7,8 @@ public class ToolOption : MonoBehaviour
     private bool taken;
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] ToolLogic manager;
+    [SerializeField] GameObject brush;
+
     
     public void set(){
         Color spriteColor = sprite.color;
@@ -19,6 +21,7 @@ public class ToolOption : MonoBehaviour
         { 
             resetOthers();
             manager.SetTool(tool); 
+            manager.brush = brush;
             spriteColor.a = 0;
         }
         taken = !taken;

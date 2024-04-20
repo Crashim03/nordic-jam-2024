@@ -39,6 +39,10 @@ public class CleaningTool : MonoBehaviour
         Debug.Log(_toClean.Count / _toCleanCount * 100);
     }
 
+    public void setBrush(GameObject brush){
+        Brush = brush;
+    }
+
     private void Start()
     {
         for (float i = _bounds.min.x; i < _bounds.max.x; i += _interval)

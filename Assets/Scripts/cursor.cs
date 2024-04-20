@@ -19,6 +19,7 @@ public class cursor : MonoBehaviour
     private float unstickDistanceThreshold = 20f;
 
     [HideInInspector] public CleaningTool CurrentCleaningTool;
+    [SerializeField] ToolLogic manager;
 
 
     private void Awake()
@@ -32,33 +33,38 @@ public class cursor : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane);
         
-        if (CurrentCleaningTool != null && Input.GetMouseButton(0))
+        if (CurrentCleaningTool != null && Input.GetMouseButton(0) && manager.tool == Tools.PANO)
         {
+            CurrentCleaningTool.setBrush(manager.brush);
             CurrentCleaningTool.Move(mousePosition);
         }
 
-
         // Sticker Detection and Logic
-        if (Input.GetMouseButtonDown(0) && stickers.Count > 0)
+        if (manager.tool == Tools.HAND)
         {
-            stickedSticker = stickers[0];
-            sticked = true;
-        }  
-        else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
-        {
-            Vector3 currentVelocity = (mousePosition - previousMousePosition) / Time.deltaTime;
-            float speed = currentVelocity.magnitude;
-            if (speed > flickThreshold)
+            if (Input.GetMouseButtonDown(0) && stickers.Count > 0)
             {
-                stickedSticker.pull();
-                sticked = false;
+                stickedSticker = stickers[0];
+                sticked = true;
+            }  
+            else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
+            {
+                Vector3 currentVelocity = (mousePosition - previousMousePosition) / Time.deltaTime;
+                float speed = currentVelocity.magnitude;
+                if (speed > flickThreshold)
+                {
+                    stickedSticker.pull();
+                    sticked = false;
+                }
             }
         }
-        else if (!Input.GetMouseButton(0))
+
+        if (!Input.GetMouseButton(0) || manager.tool != Tools.HAND)
         {
             sticked = false;
         }
-        else if (Input.GetMouseButtonDown(0)) //Tool Selection
+        
+        if (Input.GetMouseButtonDown(0)) //Tool Selection
         {
             checkForTool();
         }
