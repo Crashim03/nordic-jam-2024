@@ -33,7 +33,12 @@ public class cursor : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane);
         
-        if (CurrentCleaningTool != null && Input.GetMouseButton(0) && manager.tool == Tools.PANO)
+        Vector3 currentVelocity = (mousePosition - previousMousePosition) / Time.deltaTime;
+        float speed = currentVelocity.magnitude;
+
+        
+
+        if (CurrentCleaningTool != null && Input.GetMouseButton(0) && (manager.tool == Tools.PANO || manager.tool == Tools.TOOL))
         {
             CurrentCleaningTool.setBrush(manager.brush);
             CurrentCleaningTool.Move(mousePosition);
@@ -49,8 +54,6 @@ public class cursor : MonoBehaviour
             }  
             else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
             {
-                Vector3 currentVelocity = (mousePosition - previousMousePosition) / Time.deltaTime;
-                float speed = currentVelocity.magnitude;
                 if (speed > flickThreshold)
                 {
                     stickedSticker.pull();
