@@ -298,6 +298,7 @@ MonoBehaviour:
   sprite: {fileID: 55567576}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 1743755351935195612, guid: e132a4450724c6241ae5a0445497fd85, type: 3}
+  useSound: {fileID: 0}
 --- !u!1 &112532870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,6 +1096,7 @@ MonoBehaviour:
   sprite: {fileID: 1256517492}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 5429202531000213009, guid: dc2a610015de83948ba260b1c74d94a8, type: 3}
+  useSound: {fileID: 0}
 --- !u!1 &1368013711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1272,7 @@ MonoBehaviour:
   sprite: {fileID: 1368013715}
   manager: {fileID: 516279077425906449}
   brush: {fileID: 0}
+  useSound: {fileID: 0}
 --- !u!1001 &1534041745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1940,7 +1943,7 @@ PrefabInstance:
       objectReference: {fileID: 8400000, guid: 058c17ecaa266dd48bbdae4c4f3ec61b, type: 2}
     - target: {fileID: 5711745696582955238, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7071178517730816575, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_Name
@@ -1996,7 +1999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9110137572057033109, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
