@@ -57,7 +57,7 @@ public class CleaningTool : MonoBehaviour
         Color32[] colors = texture.GetPixels32();
         for (int i = 0; i < colors.Length; i ++)
         {
-            if (colors[i].a > 128 && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
+            if (colors[i].a > 60 && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
             {
                 whitePixels++;
             }
