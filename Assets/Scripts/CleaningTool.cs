@@ -53,7 +53,7 @@ public class CleaningTool : MonoBehaviour
 
     private void Awake()
     {
-        _bounds = _mirror.GetComponent<Collider2D>().bounds;
+        _bounds = _mirror.GetComponent<SpriteRenderer>().bounds;
         _brushRadius = Brush.GetComponent<SpriteMask>().bounds.size.x / 2;
     }
 }
