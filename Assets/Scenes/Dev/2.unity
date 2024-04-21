@@ -611,11 +611,15 @@ PrefabInstance:
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _mirrorGunk
       value: 
-      objectReference: {fileID: 771769212}
+      objectReference: {fileID: 680932798}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _cleanLayerGunk
       value: 
       objectReference: {fileID: 1268716035}
+    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: _mirrorTextureGunk
+      value: 
+      objectReference: {fileID: 8400000, guid: 0f3a0fdd2f30a0a498125316ca0a79ae, type: 2}
     - target: {fileID: 7071178517730816575, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: m_Name
       value: CursorManager
