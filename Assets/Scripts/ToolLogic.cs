@@ -15,6 +15,7 @@ public class ToolLogic : MonoBehaviour
 {
     [SerializeField] public Tools tool;
     [SerializeField] public GameObject brush;
+    [SerializeField] public GameObject Spray;
     [SerializeField] public GameObject currentAudio;
 
     [SerializeField] GameObject[] hands;

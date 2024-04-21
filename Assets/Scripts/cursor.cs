@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,12 +16,14 @@ public class cursor : MonoBehaviour
     private Vector3 previousMousePosition;
     private bool sticked = false;
     private Sticker stickedSticker;
+    
     private float unstickDistanceThreshold = 20f;
 
     [HideInInspector] public CleaningTool CurrentCleaningTool;
     [SerializeField] ToolLogic manager;
     [SerializeField] AudioClip stickerAudio;
-
+    [SerializeField] private SprayManager _sprayManager;
+    private bool _spraying = false;
 
     private void Awake()
     {
@@ -42,6 +45,10 @@ public class cursor : MonoBehaviour
         {
             CurrentCleaningTool.setBrush(manager.brush);
             CurrentCleaningTool.Move(mousePosition, manager.tool == Tools.SPONGE);
+        }
+        else if (CurrentCleaningTool != null && Input.GetMouseButtonDown(0) && manager.tool == Tools.SPRAY)
+        {
+            _sprayManager.Spray(mousePosition);
         }
 
         // Sticker Detection and Logic
@@ -73,6 +80,11 @@ public class cursor : MonoBehaviour
         previousMousePosition = mousePosition; 
     }
 
+    private void Instatiate(GameObject spray, Vector3 mousePosition, quaternion identity, Transform transform)
+    {
+        throw new NotImplementedException();
+    }
+
     private void checkForTool()
     {
         if (tool != null)
@@ -92,6 +104,28 @@ public class cursor : MonoBehaviour
         if (newTool != null)
         {
             tool = newTool;
+        }
+        if (other.CompareTag("Spray") && manager.tool != Tools.SPRAY && manager.tool != Tools.HAND)
+        {
+            StartCoroutine(SprayBrush());
+        }
+    }
+
+    private IEnumerator SprayBrush()
+    {
+        if (_spraying == false)
+        {
+            Debug.Log("Spraying");
+            _spraying = true;
+            GameObject initialCleaningTool = CurrentCleaningTool.Brush;
+            Vector3 initialScale = initialCleaningTool.transform.localScale;
+            CurrentCleaningTool.Brush.transform.localScale = initialScale * 2f;
+            Debug.Log(CurrentCleaningTool.Brush.transform.localScale);
+            yield return new WaitForSeconds(2f);
+            CurrentCleaningTool.Brush.transform.localScale = initialScale;
+            Debug.Log("Stopping");
+            Debug.Log(CurrentCleaningTool.Brush.transform.localScale);
+            _spraying = false;
         }
     }
 

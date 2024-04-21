@@ -19,7 +19,6 @@ public class CleaningTool : MonoBehaviour
     private Bounds _bounds;
     public float percentage = 0f;
 
-
     public void Move(Vector3 position, bool sponge = false)
     {
        if (position.x > _bounds.max.x || position.x < _bounds.min.x || 
