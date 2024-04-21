@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5801069634710609682}
   - component: {fileID: 8111511441754687380}
   - component: {fileID: 2432932739011763146}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SpongeBrush
   m_TagString: Brush
   m_Icon: {fileID: 0}
