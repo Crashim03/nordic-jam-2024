@@ -59,7 +59,7 @@ public class cursor : MonoBehaviour
                 stickedSticker = stickers[0];
                 sticked = true;
             }  
-            else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
+            else if (Input.GetMouseButton(0) && stickers.Count == 0 && sticked)
             {
                 stickedSticker.pull();
                 AudioSource.PlayClipAtPoint(stickerAudio, transform.position);
@@ -119,9 +119,9 @@ public class cursor : MonoBehaviour
             _spraying = true;
             GameObject initialCleaningTool = CurrentCleaningTool.Brush;
             Vector3 initialScale = initialCleaningTool.transform.localScale;
-            CurrentCleaningTool.Brush.transform.localScale = initialScale * 2f;
+            CurrentCleaningTool.Brush.transform.localScale = initialScale * 1.3f;
             Debug.Log(CurrentCleaningTool.Brush.transform.localScale);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             CurrentCleaningTool.Brush.transform.localScale = initialScale;
             Debug.Log("Stopping");
             Debug.Log(CurrentCleaningTool.Brush.transform.localScale);
