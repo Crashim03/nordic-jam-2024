@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinningState
+public class WinningState: MonoBehaviour
 {
     public float MinCleanMirror = 95f;
     public float MinCleanGunk = 95f;
