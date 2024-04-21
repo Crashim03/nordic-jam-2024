@@ -12,8 +12,11 @@ public class WinningState: MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Gunk " + cleaningTool.MirrorGunkPercentage);
+        Debug.Log("Clean " + cleaningTool.MirrorPercentage);
         if (cleaningTool.MirrorGunkPercentage >= MinCleanGunk && cleaningTool.MirrorPercentage >= MinCleanMirror && CurrentStickers == StickersToBeRemoved)
         {
+            Debug.Log(cleaningTool.MirrorGunkPercentage >= MinCleanGunk && cleaningTool.MirrorPercentage >= MinCleanMirror && CurrentStickers == StickersToBeRemoved);
             Win();
         }
     }
