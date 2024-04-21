@@ -6,6 +6,9 @@ using System.Collections.Generic;
 public class CleaningTool : MonoBehaviour
 {
     public GameObject Brush;
+    public GameObject _bubbleParticles;
+    public float _bubblespawnRate;
+    public int _winRate = 60;
     [SerializeField] private GameObject _mirror;
     [SerializeField] private GameObject _cleanLayer;
     [SerializeField] private RenderTexture _mirrorTexture;
@@ -33,6 +36,11 @@ public class CleaningTool : MonoBehaviour
             Vector3 posToSpawn = new(position.x, position.y, 0f);
             Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayerGunk.transform);
             _brushPositionsGunk.Add(coordinates);
+            if (UnityEngine.Random.Range(0, 100) <= _bubblespawnRate)
+            {
+                var bubbles =Instantiate(_bubbleParticles, posToSpawn, quaternion.identity, _cleanLayerGunk.transform);
+                Destroy(bubbles, 1f);
+            }
         }
         else if (!_brushPositions.Contains(coordinates))
         {
@@ -40,6 +48,7 @@ public class CleaningTool : MonoBehaviour
             Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayer.transform);
             _brushPositions.Add(coordinates);
         }
+    
     }
 
     public void setBrush(GameObject brush){
@@ -67,7 +76,7 @@ public class CleaningTool : MonoBehaviour
         Color32[] colors = texture.GetPixels32();
         for (int i = 0; i < colors.Length; i ++)
         {
-            if (colors[i].a > 60 && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
+            if (colors[i].a > _winRate && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
             {
                 whitePixels++;
             }
