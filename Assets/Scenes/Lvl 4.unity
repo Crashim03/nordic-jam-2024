@@ -1219,7 +1219,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 301a9336311be66409b207bf37e5dfc5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55e6f1ce36a92b042a10c8b1d92da46f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2273,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _bubbleParticles
       value: 
-      objectReference: {fileID: 6385322585535154099, guid: ba5ca08b5d54da94db8a0fa83ab303ad, type: 3}
+      objectReference: {fileID: 6385322585535154099, guid: 85142560b35409a4b936365efe8efa94, type: 3}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _bubblespawnRate
       value: 22

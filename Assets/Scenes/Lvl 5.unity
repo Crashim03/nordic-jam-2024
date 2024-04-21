@@ -396,6 +396,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3847142836907330141, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: _sprayManager
+      value: 
+      objectReference: {fileID: 760290765}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _mirror
       value: 
@@ -411,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _dustParticles
       value: 
-      objectReference: {fileID: 6385322585535154099, guid: ba5ca08b5d54da94db8a0fa83ab303ad, type: 3}
+      objectReference: {fileID: 6385322585535154099, guid: 85142560b35409a4b936365efe8efa94, type: 3}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _dustspawnRate
       value: 15
@@ -777,6 +781,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ddea069b4938ff4bb1d96da3441b932, type: 3}
+--- !u!114 &760290765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7743096052921817961, guid: 1ddea069b4938ff4bb1d96da3441b932, type: 3}
+  m_PrefabInstance: {fileID: 760290764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cbe6cb67049a54594b84ebb7c6f85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &798727612
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,7 +1383,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b2eeabd59d2029409400989b991f898, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72b41c49f815ec34b8aac1810ccd760a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

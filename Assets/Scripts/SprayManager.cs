@@ -23,7 +23,7 @@ public class SprayManager : MonoBehaviour
         while (spriteRenderer.color.a > 0f)
         {
             Color color = spriteRenderer.color;
-            color.a -= 0.01f;
+            color.a -= 0.05f;
             spriteRenderer.color = color;
 
             yield return new WaitForSeconds(0.1f);
@@ -34,7 +34,7 @@ public class SprayManager : MonoBehaviour
     private IEnumerator Cooldown()
     {
         _cooldown = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.1f);
         _cooldown = false;
     }
 }
