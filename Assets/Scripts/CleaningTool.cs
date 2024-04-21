@@ -17,7 +17,8 @@ public class CleaningTool : MonoBehaviour
     private readonly HashSet<Vector2> _brushPositions = new();
     private readonly HashSet<Vector2> _brushPositionsGunk = new();
     private Bounds _bounds;
-    public float percentage = 0f;
+    public float MirrorPercentage = 0f;
+    public float MirrorGunkPercentage = 0f;
 
     public void Move(Vector3 position, bool sponge = false)
     {
@@ -49,6 +50,7 @@ public class CleaningTool : MonoBehaviour
     private void Start()
     {
         StartCoroutine(CheckCleanedArea());
+        StartCoroutine(CheckCleanedGunkArea());
     }
 
     private IEnumerator CheckCleanedArea()
@@ -77,7 +79,40 @@ public class CleaningTool : MonoBehaviour
                 yield return null;
             }
         }
-        Debug.Log(whitePixels / colors.Length * 100);
+        MirrorPercentage = whitePixels / colors.Length * 100;
+        if (whitePixels / colors.Length != 1)
+        {
+            StartCoroutine(CheckCleanedArea());
+        }
+    }
+
+    private IEnumerator CheckCleanedGunkArea()
+    {
+        float whitePixels = 0;
+        Texture2D texture = new(_mirrorTextureGunk.width, _mirrorTextureGunk.height);
+
+        RenderTexture currentActiveRT = RenderTexture.active;
+
+        RenderTexture.active = _mirrorTextureGunk;
+
+        texture.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0);
+
+        RenderTexture.active = currentActiveRT;
+
+        Color32[] colors = texture.GetPixels32();
+        for (int i = 0; i < colors.Length; i ++)
+        {
+            if (colors[i].a > 60 && colors[i].r > 200 && colors[i].g > 200 && colors[i].b > 200)
+            {
+                whitePixels++;
+            }
+
+            if (i % 1000 == 0) // Yield every 1000 pixels to avoid freezing
+            {
+                yield return null;
+            }
+        }
+        MirrorGunkPercentage = whitePixels / colors.Length * 100;
         if (whitePixels / colors.Length != 1)
         {
             StartCoroutine(CheckCleanedArea());
