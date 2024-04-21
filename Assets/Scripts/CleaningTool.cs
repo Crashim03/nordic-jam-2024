@@ -9,13 +9,18 @@ public class CleaningTool : MonoBehaviour
     [SerializeField] private GameObject _mirror;
     [SerializeField] private GameObject _cleanLayer;
     [SerializeField] private RenderTexture _mirrorTexture;
+    [SerializeField] private GameObject _mirrorGunk;
+    [SerializeField] private GameObject _cleanLayerGunk;
+    [SerializeField] private RenderTexture _mirrorTextureGunk;
+
     [SerializeField] private float _intervalTime;
     private readonly HashSet<Vector2> _brushPositions = new();
+    private readonly HashSet<Vector2> _brushPositionsGunk = new();
     private Bounds _bounds;
     public float percentage = 0f;
 
 
-    public void Move(Vector3 position)
+    public void Move(Vector3 position, bool sponge = false)
     {
        if (position.x > _bounds.max.x || position.x < _bounds.min.x || 
         position.y > _bounds.max.y || position.y < _bounds.min.y)
@@ -24,7 +29,13 @@ public class CleaningTool : MonoBehaviour
         }
         Vector2 coordinates = new (position.x, position.y);
 
-        if (!_brushPositions.Contains(coordinates))
+        if (sponge && !_brushPositionsGunk.Contains(coordinates))
+        {
+            Vector3 posToSpawn = new(position.x, position.y, 0f);
+            Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayerGunk.transform);
+            _brushPositionsGunk.Add(coordinates);
+        }
+        else if (!_brushPositions.Contains(coordinates))
         {
             Vector3 posToSpawn = new(position.x, position.y, 0f);
             Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayer.transform);

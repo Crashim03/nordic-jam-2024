@@ -13,7 +13,6 @@ public class cursor : MonoBehaviour
     private ToolOption tool;
 
     private Vector3 previousMousePosition;
-    private float flickThreshold = 70f;
     private bool sticked = false;
     private Sticker stickedSticker;
     private float unstickDistanceThreshold = 20f;
@@ -39,10 +38,10 @@ public class cursor : MonoBehaviour
 
         
 
-        if (CurrentCleaningTool != null && Input.GetMouseButton(0) && (manager.tool == Tools.PANO || manager.tool == Tools.TOOL))
+        if (CurrentCleaningTool != null && Input.GetMouseButton(0) && (manager.tool == Tools.PANO || manager.tool == Tools.TOOL || manager.tool == Tools.SPONGE))
         {
             CurrentCleaningTool.setBrush(manager.brush);
-            CurrentCleaningTool.Move(mousePosition);
+            CurrentCleaningTool.Move(mousePosition, manager.tool == Tools.SPONGE);
         }
 
         // Sticker Detection and Logic
@@ -55,12 +54,9 @@ public class cursor : MonoBehaviour
             }  
             else if (Input.GetMouseButton(0) && stickers.Count > 0 && sticked)
             {
-                if (speed > flickThreshold)
-                {
-                    stickedSticker.pull();
-                    AudioSource.PlayClipAtPoint(stickerAudio, transform.position);
-                    sticked = false;
-                }
+                stickedSticker.pull();
+                AudioSource.PlayClipAtPoint(stickerAudio, transform.position);
+                sticked = false;
             }
         }
 

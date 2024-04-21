@@ -8,6 +8,7 @@ public enum Tools
     PANO = 1,
     SPRAY = 2,
     TOOL = 3,
+    SPONGE = 4,
 }
 
 public class ToolLogic : MonoBehaviour
