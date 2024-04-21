@@ -8,6 +8,8 @@ public class CleaningTool : MonoBehaviour
     public GameObject Brush;
     public GameObject _bubbleParticles;
     public float _bubblespawnRate;
+    public float _dustspawnRate;
+    public GameObject _dustParticles;
     public int _winRate = 60;
     [SerializeField] private GameObject _mirror;
     [SerializeField] private GameObject _cleanLayer;
@@ -48,6 +50,11 @@ public class CleaningTool : MonoBehaviour
             Vector3 posToSpawn = new(position.x, position.y, 0f);
             Instantiate(Brush, posToSpawn, quaternion.identity, _cleanLayer.transform);
             _brushPositions.Add(coordinates);
+            if (UnityEngine.Random.Range(0, 100) <= _dustspawnRate)
+            {
+                var bubbles = Instantiate(_dustParticles, posToSpawn, quaternion.identity, _cleanLayer.transform);
+                Destroy(bubbles, 1f);
+            }
         }
     
     }
