@@ -617,6 +617,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1268716035}
     - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: _bubbleParticles
+      value: 
+      objectReference: {fileID: 6385322585535154099, guid: 85142560b35409a4b936365efe8efa94, type: 3}
+    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+      propertyPath: _bubblespawnRate
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
       propertyPath: _mirrorTextureGunk
       value: 
       objectReference: {fileID: 8400000, guid: 0f3a0fdd2f30a0a498125316ca0a79ae, type: 2}
