@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dirt 1
+  m_Name: Dirt 5
   m_Shader: {fileID: -6465566751694194690, guid: 73c33889701d6ad49b22e2f4b181f0a4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Dirt_Texture:
-        m_Texture: {fileID: 2800000, guid: 14edfc0c11bd6074ea28c25c1afb97cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 54f7101b7984b60409c2d5ef1c467419, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
