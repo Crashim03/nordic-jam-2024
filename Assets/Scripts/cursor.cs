@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class cursor : MonoBehaviour
@@ -33,6 +34,11 @@ public class cursor : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        } 
+
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         customCursor.transform.position = new Vector3(mousePosition.x, mousePosition.y, Camera.main.nearClipPlane);
         
