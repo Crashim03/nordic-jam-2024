@@ -124,7 +124,7 @@ public class CleaningTool : MonoBehaviour
         MirrorGunkPercentage = whitePixels / colors.Length * 100;
         if (whitePixels / colors.Length != 1)
         {
-            StartCoroutine(CheckCleanedArea());
+            StartCoroutine(CheckCleanedGunkArea());
         }
     }
 

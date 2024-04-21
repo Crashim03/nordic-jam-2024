@@ -529,6 +529,90 @@ Transform:
   - {fileID: 1853159720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &634943603
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25629705
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.9163026
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160344392571775711, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581556079019700955, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: MinCleanGunk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581556079019700955, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: cleaningTool
+      value: 
+      objectReference: {fileID: 1834289798}
+    - target: {fileID: 4581556079019700955, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: MinCleanMirror
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4581556079019700955, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: StickersToBeRemoved
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214767004711150201, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+      propertyPath: m_Name
+      value: WinManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+--- !u!114 &634943604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4581556079019700955, guid: 654ba56904bb6234a88b42041c9d842e, type: 3}
+  m_PrefabInstance: {fileID: 634943603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a43f15b5073938c4da671066ca3e1993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &650635499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1688,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6f7b4bfe960d54391f4cf60dfcb012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1834289798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5078413487393361198, guid: 5b3c0bfb5cd0e234892e117232d5a074, type: 3}
+  m_PrefabInstance: {fileID: 1834289796}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8cff1976bdc074e99cfa3988ae8c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1838741446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +2071,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5520000752600148824, guid: 5f015758287351b48aeddf4eb83113b1, type: 3}
+      propertyPath: winningState
+      value: 
+      objectReference: {fileID: 634943604}
     - target: {fileID: 6425380097703662380, guid: 5f015758287351b48aeddf4eb83113b1, type: 3}
       propertyPath: m_Name
       value: Sticker
@@ -2079,3 +2178,4 @@ SceneRoots:
   - {fileID: 1834289796}
   - {fileID: 1389659233}
   - {fileID: 2115228536}
+  - {fileID: 634943603}
