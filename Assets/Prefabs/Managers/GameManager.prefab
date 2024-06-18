@@ -853,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tool: 0
   brush: {fileID: 0}
+  Spray: {fileID: 0}
   currentAudio: {fileID: 0}
   hands:
   - {fileID: 9110137572057033109}
@@ -873,9 +874,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customCursor: {fileID: 7071178517730816575}
+  handSprite: {fileID: 509818271199588009}
+  stickerSprite: {fileID: 21300000, guid: a9e529e18d3d8214991e69c4f56277d5, type: 3}
+  notStickerSprite: {fileID: 21300000, guid: 9f9876c85b11c534caf59c3da0532bfb, type: 3}
   CurrentCleaningTool: {fileID: 0}
   manager: {fileID: 8105237937208075471}
   stickerAudio: {fileID: 8300000, guid: c9cf6b73134924a42bb07ce3e424625e, type: 3}
+  _sprayManager: {fileID: 0}
 --- !u!114 &5078413487393361198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,11 +894,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Brush: {fileID: 7841287675342323217, guid: e1b85cd6f2c36bc439595d1ff03bdc13, type: 3}
+  _bubbleParticles: {fileID: 6385322585535154099, guid: 85142560b35409a4b936365efe8efa94, type: 3}
+  _bubblespawnRate: 22
+  _dustspawnRate: 15
+  _dustParticles: {fileID: 6385322585535154099, guid: ba5ca08b5d54da94db8a0fa83ab303ad, type: 3}
+  _winRate: 60
   _mirror: {fileID: 0}
   _cleanLayer: {fileID: 0}
   _mirrorTexture: {fileID: 8400000, guid: 058c17ecaa266dd48bbdae4c4f3ec61b, type: 2}
+  _mirrorGunk: {fileID: 0}
+  _cleanLayerGunk: {fileID: 0}
+  _mirrorTextureGunk: {fileID: 8400000, guid: 0f3a0fdd2f30a0a498125316ca0a79ae, type: 2}
   _intervalTime: 0
-  percentage: 0
+  MirrorPercentage: 0
+  MirrorGunkPercentage: 0
 --- !u!58 &6240165998293812169
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -926,9 +940,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.081955016, y: 0.23265558}
+  m_Offset: {x: 0.19245094, y: -0.30285645}
   serializedVersion: 2
-  m_Radius: 0.09003091
+  m_Radius: 0.7149658
 --- !u!50 &8366064087720903270
 Rigidbody2D:
   serializedVersion: 4

@@ -17,6 +17,9 @@ public class cursor : MonoBehaviour
     private Vector3 previousMousePosition;
     private bool sticked = false;
     private Sticker stickedSticker;
+    [SerializeField] SpriteRenderer handSprite;
+    [SerializeField] Sprite stickerSprite;
+    [SerializeField] Sprite notStickerSprite;
     
     private float unstickDistanceThreshold = 20f;
 
@@ -34,6 +37,8 @@ public class cursor : MonoBehaviour
 
     void Update()
     {
+        handSprite.sprite = (stickers.Count > 0) ? stickerSprite : notStickerSprite;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
