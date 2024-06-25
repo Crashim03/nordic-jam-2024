@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class Paw : Tool 
 {
-    private List<GameObject> _stickersHovered = new(); 
+    private readonly List<GameObject> _stickersHovered = new(); 
 
-    public override void Action()
+    public override void Click()
+    {
+        
+    }
+
+    public override void Hold()
     {
         
     }

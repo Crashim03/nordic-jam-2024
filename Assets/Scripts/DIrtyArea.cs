@@ -4,15 +4,14 @@ using UnityEngine.Events;
 
 public class DirtyArea : MonoBehaviour
 {
+    public Mirror Mirror;
     private float _health = 100f;
     private SpriteRenderer _spriteRenderer;
-    private Mirror _mirror;
 
     public void LooseHealth(float damage)
     {
+        Mirror.CleanArea(Math.Clamp(damage, 0f, _health));
         _health -= damage;
-
-        _mirror.CleanArea(Math.Clamp(damage, 0f, _health));
 
         if (_health <= 0f)
         {

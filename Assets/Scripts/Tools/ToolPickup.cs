@@ -15,7 +15,8 @@ public class ToolPickup : MonoBehaviour
 
     public void Place(Tool tool)
     {
-
+        Tool = tool;
+        _spriteRenderer.sprite = Tool.ToolStats.PickUpSprite;
     }
 
     private void Awake()
@@ -23,7 +24,7 @@ public class ToolPickup : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         if (Tool != null)
         {
-            _spriteRenderer.sprite = Tool.ToolStats.pickUpSprite;
+            _spriteRenderer.sprite = Tool.ToolStats.PickUpSprite;
         }
     }
 }

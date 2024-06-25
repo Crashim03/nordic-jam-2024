@@ -10,6 +10,7 @@ public class Mirror : MonoBehaviour
 
     public void CleanArea(float cleaned)
     {
+        Debug.Log(cleaned);
         _progressBar.AreaCleaned += cleaned;
         _progressBar.UpdateBar();
     }
@@ -35,6 +36,7 @@ public class Mirror : MonoBehaviour
                 GameObject dirtyArea = Instantiate(_dirtyArea, new Vector3(i, j, 1f), transform.rotation);
                 dirtyArea.transform.localScale = new Vector3(xInterval, yInterval, 1f);
                 dirtyArea.transform.SetParent(_dirtyAreasParent);
+                dirtyArea.GetComponent<DirtyArea>().Mirror = this;
             }
         }
     }

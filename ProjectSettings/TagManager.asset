@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Brush
   - Spray
+  - Dirt
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,6 @@ TagManager:
   - Dirt
   - Spray
   - Dirt2
-  - 
   - 
   - 
   - 

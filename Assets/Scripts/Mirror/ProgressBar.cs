@@ -15,6 +15,6 @@ public class ProgressBar : MonoBehaviour
 
     public void UpdateBar()
     {
-        _progressText.text = "Progress: " + AreaCleaned / AreaToClean * 100 + "%";
+        _progressText.text = "Progress: " + AreaCleaned / AreaToClean + "%";
     }
 }

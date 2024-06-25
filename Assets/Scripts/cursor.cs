@@ -11,7 +11,7 @@ public class Cursor : MonoBehaviour
 {
     [SerializeField] private Paw _paw;
     private Tool _currentTool;
-    private List<ToolPickup> _toolsHovered = new(); 
+    private readonly List<ToolPickup> _toolsHovered = new(); 
     private bool _click = false;
 
     private void Start()
@@ -19,9 +19,19 @@ public class Cursor : MonoBehaviour
         _currentTool = _paw;
     }
 
-    private void PickUpTool(Tool tool)
+    private void PickUpTool(ToolPickup tool)
     {
-        _currentTool = tool;
+        _currentTool.gameObject.SetActive(false);
+        _currentTool = tool.PickUp();
+        _currentTool.gameObject.SetActive(true);
+    }
+
+    private void PlaceTool(ToolPickup pickup)
+    {
+        pickup.Place(_currentTool);
+        _currentTool.gameObject.SetActive(false);
+        _currentTool = _paw;
+        _currentTool.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -35,20 +45,21 @@ public class Cursor : MonoBehaviour
 
         if (!_click && newClick)
         {
-            _click = true;
             Click();
         }
-        else
+        else if (_click && newClick)
         {
-            _click = newClick;
+            Hold();
         }
+
+        _click = newClick;
     }
 
     private void Click()
     {
         if (_toolsHovered.Count == 0)
         {
-            _currentTool.Action();
+            _currentTool.Click();
             return;
         }
 
@@ -64,19 +75,25 @@ public class Cursor : MonoBehaviour
 
         if (closestTool.Tool != null)
         {
-            _currentTool = closestTool.PickUp();
+            PickUpTool(closestTool);
         }
         else if (_currentTool != _paw)
         {
-            closestTool.Place(_currentTool);
-            _currentTool = _paw;
+            PlaceTool(closestTool);
+        }
+    }
+
+    private void Hold()
+    {
+        if (_toolsHovered.Count == 0)
+        {
+            _currentTool.Hold();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        Debug.Log(other);
         if (other.gameObject.TryGetComponent(out ToolPickup pickUp))
         {
             _toolsHovered.Add(pickUp);

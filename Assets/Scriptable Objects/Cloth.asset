@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcd2dbdfe550ab459b9326c23da1f81, type: 3}
   m_Name: Cloth
   m_EditorClassIdentifier: 
-  pickUpSprite: {fileID: 21300000, guid: fb6c4a10a811dc6469ec9bb18983aade, type: 3}
-  toolSprite: {fileID: 21300000, guid: 966a20d96fb6fca4bb4a5f483cfeb9eb, type: 3}
-  particleSprite: {fileID: 21300000, guid: 2a04ff117e6f1af468f20657a5d8406a, type: 3}
+  PickUpSprite: {fileID: 21300000, guid: fb6c4a10a811dc6469ec9bb18983aade, type: 3}
+  ToolSprite: {fileID: 0}
+  ParticleSprite: {fileID: 0}
+  Damage: 100
